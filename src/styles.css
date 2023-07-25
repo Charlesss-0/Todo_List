@@ -5,6 +5,10 @@
     --light-color: #F5F5F5;
     --light-gray: #dfdfdf;
     --font-color: #3f3f3f;
+    --hover-color: #9f9f9f;
+    --gray: #5a5a5a;
+    --black: #000000;
+    --subtle-dark: #0001;
 }
 
 * {
@@ -21,6 +25,9 @@ body {
     font-family: 'Montserrat', sans-serif;
     height: 100vh;
     color: var(--font-color);
+
+    display: grid;
+    grid-template-rows: auto 1fr;
 }
 
 i {
@@ -33,12 +40,14 @@ i {
 
 .header-content {
     border-bottom: 1px solid var(--light-gray);
+    box-shadow: 2px 2px 5px var(--subtle-dark);
     padding: 1em 3em;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+    z-index: 1;
 }
 
 .search-bar {
@@ -81,17 +90,94 @@ i {
     width: max-content;
     height: 100%;
     padding: 2em;
+    user-select: none;
 
     transition: all .2s ease;
 }
 
-.projects-wrapper {
-    display: flex;
+.next-task {
+    display: grid;
     gap: 1em;
+    margin-bottom: 1em;
+    padding: 1em;
+}
+
+.next-task div {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.next-task div i {
+    font-size: 2rem;
+}
+
+.next-task div p {
+    font-size: 1.2rem;
+}
+
+.projects-wrapper {
+    color: var(--gray);
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: 1em;
+}
+
+.projects-wrapper div {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 .projects-wrapper h2 {
-    padding-right: 15vw;
+    padding-right: 10vw;
+}
+
+.projects {
+    list-style-type: none;
+    display: grid;
+    gap: 2em;
+}
+
+.projects li {
+    padding: 5px 10px;
+    font-size: 1.3rem;
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.projects li i {
+    font-size: 1.6rem;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.projects li i:hover {
+    color: var(--hover-color);
+}
+
+.next-task div,
+.projects-wrapper div,
+.projects li,
+.projects li i {
+    transition: all .2s linear;
+    cursor: pointer;
+}
+
+.hover,
+.next-task div:hover,
+.projects-wrapper div:hover,
+.projects li:hover {
+    background-color: var(--light-gray);
 }
 
 /* MAIN CONTENT SECTION END */
