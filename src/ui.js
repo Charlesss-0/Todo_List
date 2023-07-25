@@ -1,5 +1,9 @@
+const burgerMenuEl = document.querySelector('.burger-menu')
+const asideContent = document.querySelector('.aside-content')
 const todayEl = document.getElementById('today')
 const upcomingEl = document.getElementById('upcoming')
+const taskBoardEl = document.getElementById('task-board')
+const asideContentWrapper = document.querySelector('.aside-content-wrapper')
 
 function toggleTodayClass() {
     todayEl.classList.add('hover')
@@ -11,3 +15,8 @@ upcomingEl.addEventListener('click', () => {
     upcomingEl.classList.add('hover')
     todayEl.classList.remove('hover')
 })
+
+function showAside() {
+    asideContent.classList.toggle('show-aside')
+}
+burgerMenuEl.addEventListener('click', showAside)

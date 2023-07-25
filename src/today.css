@@ -1,0 +1,49 @@
+:root {
+    --soft-white: #f5f5f5;
+}
+
+.today-content-wrapper {
+    height: 100%;
+}
+
+.tsk-sct {
+    width: min(600px, 100%);
+    margin: 0 auto;
+    padding: 1em;
+    padding-top: 5em;
+}
+
+.divider {
+    border: none;
+    border-bottom: 1px solid;
+    margin-top: 1em;
+}
+
+.add-task {
+    margin: 1em 0;
+}
+
+.add-task div {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    padding-left: 5px;
+    border-radius: 10em;
+
+    transition: all .2s ease;
+    cursor: pointer;
+}
+
+.add-task div:hover {
+    background-color: var(--soft-white);
+}
+
+.add-task i {
+    font-size: 2rem;
+}
+
+.add-task span {
+    font-size: 1.3rem;
+
+}

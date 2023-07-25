@@ -85,14 +85,25 @@ i {
 
 /* MAIN CONTENT SECTION START */
 
+.main-content {
+    display: flex;
+}
+
 .aside-content {
     background-color: var(--light-color);
-    width: max-content;
+    width: min(300px, 90%);
     height: 100%;
     padding: 2em;
     user-select: none;
 
-    transition: all .2s ease;
+    transition: all .3s ease;
+    transform-origin: left;
+}
+
+.show-aside {
+    transform: translateX(-600px);
+    width: 0;
+    padding: 0;
 }
 
 .next-task {
@@ -126,16 +137,18 @@ i {
     padding: 1em;
 }
 
-.projects-wrapper div {
+.project-options {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 1em;
     padding: 5px 10px;
     border-radius: 5px;
 }
 
-.projects-wrapper h2 {
-    padding-right: 10vw;
+.project-options div {
+    display: flex;
+    gap: 10px;
 }
 
 .projects {
@@ -175,9 +188,14 @@ i {
 
 .hover,
 .next-task div:hover,
-.projects-wrapper div:hover,
+.project-options:hover,
 .projects li:hover {
     background-color: var(--light-gray);
+}
+
+#task-board {
+    transition: all .3s ease;
+    flex: 1;
 }
 
 /* MAIN CONTENT SECTION END */
