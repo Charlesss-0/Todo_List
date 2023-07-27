@@ -2,40 +2,85 @@ export function renderUpcoming() {
     const taskBoard = document.getElementById('task-board')
     taskBoard.innerHTML = ''
     const div = document.createElement('div')
-    div.classList.add('task-content-wrapper')
+    div.classList.add('upcoming-content-wrapper')
     div.innerHTML = `
-        <div class="tsk-sct">
-            <div class="date-indicator">
-                <h1>
-                    Upcoming
-                </h1>
-                <hr class="divider">
+        <div>
+            <h1>
+                Today
+            </h1>
+
+            <div class="ty-tsk">
+                <ul>
+                    <li>Task 1</li>
+                    <li>Task 2</li>
+                </ul>
             </div>
+        </div>
 
-            <div class="tsk-cnt">
-                <div class="add-task">
-                    <div>
-                        <i class="fi fi-sr-plus-small"></i>
-                        <span>
-                            Add Task
-                        </span>
-                    </div>
+        <div>
+            <h1>
+                Tomorrow
+            </h1>
 
-                    <ul class="tsk-lst">
-                        <li class="tsk"><div class="circle"></div>Go for a walk</li>
-                        <li class="tsk"><div class="circle"></div>Finish second app project</li>
-                        <li class="tsk"><div class="circle"></div>Upload weekly video</li>
-                    </ul>
-                </div>
+            <div class="tm-tsk">
+                <ul>
+                    <li>Task 1</li>
+                    <li>Task 2</li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <h1>
+                This Week
+            </h1>
+
+            <div class="tk-tsk">
+                <ul>
+                    <li>Task 1</li>
+                    <li>Task 2</li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <h1>
+                Next Week
+            </h1>
+
+            <div class="nk-tsk">
+                <ul>
+                    <li>Task 1</li>
+                    <li>Task 2</li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <h1>
+                This Month
+            </h1>
+
+            <div class="th-tsk">
+                <ul>
+                    <li>Task 1</li>
+                    <li>Task 2</li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <h1>
+                Next Month
+            </h1>
+
+            <div class="nh-tsk">
+                <ul>
+                    <li>Task 1</li>
+                    <li>Task 2</li>
+                </ul>
             </div>
         </div>
     `
     taskBoard.appendChild(div)
-
-    const circleEl = document.querySelectorAll('.circle')
-    circleEl.forEach(e => {
-        e.addEventListener('click', () => {
-            e.classList.add('check')
-        })
-    })
 }

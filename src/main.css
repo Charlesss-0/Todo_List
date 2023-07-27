@@ -2,15 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Rubik&display=swap');
 
 :root {
+    --body-before: #0005;
     --light-color: #F5F5F5;
     --light-gray: #dfdfdf;
-    --font-color: #3f3f3f;
+    --font-color: #282828;
+    --secondary-font-color: #efefef;
     --hover-color: #9f9f9f;
     --gray: #5a5a5a;
     --black: #000000;
     --subtle-dark: #0001;
     --soft-white: #f5f5f5;
     --tsk-color: #f9f9f9;
+    --light-blue: #116A7B;
+    --shadow: 2px 2px 3px var(--subtle-dark);
 }
 
 * {
@@ -32,6 +36,15 @@ body {
     grid-template-rows: auto 1fr;
 }
 
+body.show-before::before {
+    content: '';
+    background-color: var(--body-before);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
 i {
     cursor: pointer;
     font-size: 2.5rem;
@@ -43,6 +56,7 @@ i {
 .header-content {
     border-bottom: 1px solid var(--light-gray);
     box-shadow: 2px 2px 5px var(--subtle-dark);
+    height: 50px;
     padding: 1em 3em;
 
     display: flex;
@@ -78,9 +92,14 @@ i {
     padding: 10px;
 }
 
-.search-bar input[type="search"]::-webkit-search-cancel-button,
-.search-bar input[type="search"]::-moz-search-cancel-button {
+.search-bar input[type="search"]::-webkit-search-cancel-button {
     display: none;
+}
+
+.sth-pfl {
+    display: flex;
+    align-items: center;
+    gap: 2em;
 }
 
 .header-content img {
@@ -99,7 +118,6 @@ i {
 .aside-content {
     background-color: var(--light-color);
     width: min(300px, 90%);
-    height: 100%;
     padding: 2em;
     user-select: none;
 
@@ -160,7 +178,7 @@ i {
 .projects {
     list-style-type: none;
     display: grid;
-    gap: 2em;
+    gap: 5px;
 }
 
 .projects li {
@@ -202,87 +220,6 @@ i {
 #task-board {
     transition: all .3s ease;
     flex: 1;
-}
-
-.task-content-wrapper {
-    height: 100%;
-    position: relative;
-}
-
-.tsk-sct {
-    width: min(600px, 100%);
-    margin: 0 auto;
-    padding: 1em;
-    padding-top: 5em;
-}
-
-.divider {
-    border: none;
-    border-bottom: 1px solid;
-    margin-top: 1em;
-}
-
-.add-task {
-    margin: 1em 0;
-}
-
-.add-task div {
-    width: max-content;
-    display: flex;
-    align-items: center;
-    padding: 5px 10px;
-    padding-left: 5px;
-    border-radius: 10em;
-
-    transition: all .2s ease;
-    cursor: pointer;
-}
-
-.add-task div:hover {
-    background-color: var(--soft-white);
-}
-
-.add-task i {
-    font-size: 2rem;
-}
-
-.add-task span {
-    font-size: 1.3rem;
-}
-
-.tsk-lst {
-    list-style: none;
-    font-size: 1.3rem;
-    margin-top: 1em;
-
-    display: grid;
-    row-gap: 15px;
-}
-
-.tsk {
-    border: 1px solid var(--subtle-dark);
-    box-shadow: 2px 2px 3px var(--subtle-dark);
-    display: grid;
-    grid-template-columns: auto auto 1fr;
-    gap: 10px;
-    padding: 1em;
-    border-radius: 10px;
-}
-
-.tsk:hover {
-    background-color: var(--tsk-color);
-}
-
-.circle {
-    border: 1px solid;
-}
-
-.check {
-    background-color: var(--light-gray);
-}
-
-.tsk .circle:hover {
-    background-color: var(--light-gray);
 }
 
 /* MAIN CONTENT SECTION END */
