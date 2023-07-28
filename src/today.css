@@ -15,8 +15,9 @@
 }
 
 .today-content-wrapper {
-    height: 100%;
+    height: calc(100vh - 50px);
     position: relative;
+    overflow: auto;
 }
 
 .tsk-sct {
@@ -117,6 +118,17 @@
 .tsk-opts {
     display: flex;
     gap: 2.5em;
+}
+
+.tsk-opts .mn-dts,
+.tsk-opts .trsh {
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.tsk-opts .mn-dts:hover,
+.tsk-opts .trsh:hover {
+    background-color: var(--light-color);
 }
 
 .circle {

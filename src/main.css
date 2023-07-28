@@ -29,7 +29,6 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif;
-    height: 100vh;
     color: var(--font-color);
 
     display: grid;
@@ -40,8 +39,10 @@ body.show-before::before {
     content: '';
     background-color: var(--body-before);
     position: absolute;
-    width: 100%;
-    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     z-index: 2;
 }
 

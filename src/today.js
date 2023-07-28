@@ -1,3 +1,5 @@
+import { todayTasks, tomorrowTasks, thisWeekTasks, nextWeekTasks, thisMonthTasks, nextMonthTasks } from "./taskStorage"
+
 export function renderToday() {
     const taskBoard = document.getElementById('task-board')
     taskBoard.innerHTML = ''
@@ -79,7 +81,6 @@ export function renderToday() {
 
     const UiEvents = (function() {
         const formContentEl = document.querySelector('.form-content')
-        let newTasks = []
 
         function showTasks(name, des, date, priority) {
             const taskList = document.querySelector('.tsk-lst')
@@ -107,8 +108,7 @@ export function renderToday() {
                         </div>
 
                         <div class="tsk-opts">
-                            <i class="fi fi-sr-menu-dots"></i>
-                            <i class="fi fi-rr-trash"></i>
+                            <i class="fi fi-sr-menu-dots mn-dts"></i>
                         </div>
                     `
                     taskList.appendChild(li)
@@ -133,15 +133,31 @@ export function renderToday() {
             
             const task = showTasks(name, des, date, priority)
 
-            newTasks.push(task)
-            task.displayTask()
+            if (task.date === 'Today') {
+                todayTasks.push(task)
+                task.displayTask()
+
+            } else if (task.date === 'Tomorrow') {
+                tomorrowTasks.push(task)
+
+            } else if (task.date === 'This Week') {
+                thisWeekTasks.push(task)
+
+            } else if (task.date === 'Next Week') {
+                nextWeekTasks.push(task)
+
+            } else if (task.date === 'This Month') {
+                thisMonthTasks.push(task)
+
+            } else if (task.date === 'Next Month') {
+                nextMonthTasks.push(task)
+            }
 
             nwTskFrm.style.display = 'none'
             document.body.classList.remove('show-before')
 
             formContentEl.reset()
         }
-
         formContentEl.addEventListener('submit', submitNewTask)
     }) ()
 
