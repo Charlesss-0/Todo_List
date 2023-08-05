@@ -1,4 +1,16 @@
-import { todayTasks, tomorrowTasks, thisWeekTasks, nextWeekTasks, thisMonthTasks, nextMonthTasks } from "./taskStorage"
+const todayTasks = []
+const tomorrowTasks = []
+const thisWeekTasks = []
+const nextWeekTasks = []
+const thisMonthTasks = []
+const nextMonthTasks = []
+
+export const todayTsk = JSON.parse(localStorage.getItem('today'))
+export const tomorrow = JSON.parse(localStorage.getItem('tomorrow'))
+export const thisWeek = JSON.parse(localStorage.getItem('thisWeek'))
+export const nextWeek = JSON.parse(localStorage.getItem('nextWeek'))
+export const thisMonth = JSON.parse(localStorage.getItem('thisMonth'))
+export const nextMonth = JSON.parse(localStorage.getItem('nextMonth'))
 
 // renders all today's tasks information, including event listeners and storing tasks in local storage leading them into their own separate array
 export function renderToday() {
@@ -120,22 +132,27 @@ export function renderToday() {
 
                 case 'Tomorrow':
                     tomorrowTasks.push(task)
+                    localStorage.setItem('tomorrow', JSON.stringify(tomorrowTasks))
                     break
 
                 case 'This Week':
                     thisWeekTasks.push(task)
+                    localStorage.setItem('thisWeek', JSON.stringify(thisWeekTasks))
                     break
 
                 case 'Next Week':
                     nextWeekTasks.push(task)
+                    localStorage.setItem('nextWeek', JSON.stringify(nextWeekTasks))
                     break
 
                 case 'This Month':
                     thisMonthTasks.push(task)
+                    localStorage.setItem('thisMonth', JSON.stringify(thisMonthTasks))
                     break
 
                 case 'Next Month':
                     nextMonthTasks.push(task)
+                    localStorage.setItem('nextMonth', JSON.stringify(nextMonthTasks))
                     break
             }
 
@@ -176,8 +193,6 @@ export function renderToday() {
         }
         const today = JSON.parse(localStorage.getItem('today')) || []
         renderTodayTasks(today)
-        console.log(today)
-    
     }) ()
 
     const taskList = document.querySelector('.tsk-lst')
