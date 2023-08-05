@@ -111,6 +111,16 @@ export function renderUpcoming() {
             
             const todayTask = showTasks(name, des, date, priority)
             todayTask.displayTask()
+
+        } else if (tomorrowTasks[0].date === 'Tomorrow') {
+            const name = tomorrowTasks[0].name
+            const des = tomorrowTasks[0].des
+            const date = tomorrowTasks[0].date
+            const priority = tomorrowTasks[0].date
+
+            const tomorrowTask = showTasks(name, des, date, priority)
+            tomorrowTask.displayTask()
+            console.log(tomorrowTask)
         }
     }
 

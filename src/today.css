@@ -142,10 +142,6 @@
     background-color: var(--light-gray);
 }
 
-.tsk .circle:hover {
-    background-color: var(--light-gray);
-}
-
 .nw-tsk-frm {
     background-color: var(--light-color);
     width: min(600px, 90%);

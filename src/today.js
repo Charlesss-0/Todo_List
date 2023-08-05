@@ -1,5 +1,6 @@
 import { todayTasks, tomorrowTasks, thisWeekTasks, nextWeekTasks, thisMonthTasks, nextMonthTasks } from "./taskStorage"
 
+// renders all today's tasks information, including event listeners and storing tasks in local storage leading them into their own separate array
 export function renderToday() {
     const taskBoard = document.getElementById('task-board')
     taskBoard.innerHTML = ''
@@ -67,11 +68,12 @@ export function renderToday() {
     const nwTskEl = document.querySelector('.nw-tsk')
     const nwTskFrm = document.querySelector('.nw-tsk-frm')
     const cancelBtn = document.querySelector('.cancel-btn')
-    function addNewTask() {
+
+    function showNewTaskForm() {
         nwTskFrm.style.display = 'block'
         document.body.classList.add('show-before')
     }
-    nwTskEl.addEventListener('click', addNewTask)
+    nwTskEl.addEventListener('click', showNewTaskForm)
 
     function hideForm() {
         nwTskFrm.style.display = 'none'
@@ -79,42 +81,17 @@ export function renderToday() {
     }
     cancelBtn.addEventListener('click', hideForm)
 
-    const UiEvents = (function() {
+    // stores tasks into the correct array and also displays each task into the screen
+    const tasks = (function() {
         const formContentEl = document.querySelector('.form-content')
 
-        function showTasks(name, des, date, priority) {
-            const taskList = document.querySelector('.tsk-lst')
-
+        function addTaskForToday(name, des, date, priority) {
             const task = {
                 name: name,
                 des: des,
                 date: date,
                 priority: priority,
-
-                displayTask: function() {
-                    const li = document.createElement('li')
-                    li.classList.add('tsk')
-                    li.innerHTML = `
-                        <div class="circle"></div>
-
-                        <div class="tsk-chd">
-                            <p class="name">${this.name}</p>
-                            <p class="des">${this.des}</p>
-
-                            <div class="dt-pr">
-                                <p class="date">${this.date}</p>
-                                <p class="priority">${this.priority}</p>
-                            </div>
-                        </div>
-
-                        <div class="tsk-opts">
-                            <i class="fi fi-sr-menu-dots mn-dts"></i>
-                        </div>
-                    `
-                    taskList.appendChild(li)
-                }
             }
-
             return task
         }
 
@@ -130,27 +107,36 @@ export function renderToday() {
             const des = taskDescription.value
             const date = dateSelection.value
             const priority = prioritySelection.value
-            
-            const task = showTasks(name, des, date, priority)
 
-            if (task.date === 'Today') {
-                todayTasks.push(task)
-                task.displayTask()
+            const task = addTaskForToday(name, des, date, priority)
 
-            } else if (task.date === 'Tomorrow') {
-                tomorrowTasks.push(task)
+            switch (task.date) {
+                case 'Today':
+                    todayTasks.push(task)
+                    localStorage.setItem('today', JSON.stringify(todayTasks))
+                    const today = JSON.parse(localStorage.getItem('today')) || []
+                    renderTodayTasks(today)
+                    break
 
-            } else if (task.date === 'This Week') {
-                thisWeekTasks.push(task)
+                case 'Tomorrow':
+                    tomorrowTasks.push(task)
+                    break
 
-            } else if (task.date === 'Next Week') {
-                nextWeekTasks.push(task)
+                case 'This Week':
+                    thisWeekTasks.push(task)
+                    break
 
-            } else if (task.date === 'This Month') {
-                thisMonthTasks.push(task)
+                case 'Next Week':
+                    nextWeekTasks.push(task)
+                    break
 
-            } else if (task.date === 'Next Month') {
-                nextMonthTasks.push(task)
+                case 'This Month':
+                    thisMonthTasks.push(task)
+                    break
+
+                case 'Next Month':
+                    nextMonthTasks.push(task)
+                    break
             }
 
             nwTskFrm.style.display = 'none'
@@ -159,12 +145,45 @@ export function renderToday() {
             formContentEl.reset()
         }
         formContentEl.addEventListener('submit', submitNewTask)
+
+        function renderTodayTasks(today) {
+            const taskList = document.querySelector('.tsk-lst')
+            taskList.innerHTML = ''
+
+            today.forEach((task) => {
+                const li = document.createElement('li')
+
+                li.classList.add('tsk')
+                li.innerHTML = `
+                    <div class="circle"></div>
+    
+                    <div class="tsk-chd">
+                        <p class="name">${task.name}</p>
+                        <p class="des">${task.des}</p>
+    
+                        <div class="dt-pr">
+                            <p class="date">${task.date}</p>
+                            <p class="priority">${task.priority}</p>
+                        </div>
+                    </div>
+
+                    <div class="tsk-opts">
+                        <i class="fi fi-sr-menu-dots mn-dts"></i>
+                    </div>
+                `
+                taskList.appendChild(li)
+            })
+        }
+        const today = JSON.parse(localStorage.getItem('today')) || []
+        renderTodayTasks(today)
+        console.log(today)
+    
     }) ()
 
-    const circleEl = document.querySelectorAll('.circle')
-    circleEl.forEach(e => {
-        e.addEventListener('click', () => {
-            e.classList.toggle('check')
-        })
+    const taskList = document.querySelector('.tsk-lst')
+    taskList.addEventListener('click', (event) => {
+        if (event.target.classList.contains('circle')) {
+            event.target.classList.toggle('check')
+        }
     })
 }
