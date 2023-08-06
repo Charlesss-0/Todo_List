@@ -177,15 +177,29 @@ export function renderToday() {
                     <div class="tsk-chd">
                         <p class="name">${task.name}</p>
                         <p class="des">${task.des}</p>
-    
+
                         <div class="dt-pr">
                             <p class="date">${task.date}</p>
                             <p class="priority">${task.priority}</p>
                         </div>
                     </div>
 
-                    <div class="tsk-opts">
-                        <i class="fi fi-sr-menu-dots mn-dts"></i>
+                    <div class="tsk-opts" tabindex="1">
+                        <i class="fi fi-sr-menu-dots mn-dts">
+                            <div class="tsk-options">
+                                <p>
+                                    Edit
+                                </p>
+
+                                <p>
+                                    View
+                                </p>
+
+                                <p>
+                                    Delete
+                                </p>
+                            </div>
+                        </i>
                     </div>
                 `
                 taskList.appendChild(li)
@@ -193,6 +207,7 @@ export function renderToday() {
         }
         const today = JSON.parse(localStorage.getItem('today')) || []
         renderTodayTasks(today)
+        console.log(today)
     }) ()
 
     const taskList = document.querySelector('.tsk-lst')

@@ -223,4 +223,45 @@ i {
     flex: 1;
 }
 
+.mn-dts {
+    position: relative;
+}
+
+.tsk-opts:focus .tsk-options {
+    display: block;
+}
+
+.tsk-options {
+    background-color: var(--light-color);
+    font-style: normal;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.4rem;
+    padding: 5px;
+    border-radius: 5px;
+
+    position: absolute;
+    top: 50%;
+    left: 4em;
+    transform: translateY(-50%);
+
+    display: none;
+}
+
+.tsk-options p {
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.tsk-options p:hover {
+    background-color: var(--light-gray);
+}
+
+.tsk-options p:nth-child(3) {
+    color: #b00;
+}
+
+.show-task-options {
+    display: block;
+}
+
 /* MAIN CONTENT SECTION END */

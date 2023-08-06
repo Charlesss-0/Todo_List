@@ -1,7 +1,6 @@
 import mainCSS from './main.css'
 import todayCss from './today.css'
 import upcomingCss from './upcoming.css'
-import theme from './theme.css'
 import { ui } from './ui'
 import { renderToday } from './today'
 import { renderUpcoming } from './upcoming'

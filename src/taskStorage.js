@@ -1,6 +1,0 @@
-export const todayTasks = []
-export const tomorrowTasks = []
-export const thisWeekTasks = []
-export const nextWeekTasks = []
-export const thisMonthTasks = []
-export const nextMonthTasks = []
