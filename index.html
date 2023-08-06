@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="bundle.js"></script>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-thin-rounded/css/uicons-thin-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+</head>
+<body>
+    <header class="header-content">
+        <i class="fi fi-sr-menu-burger burger-menu"></i>
+
+        <div class="search-bar">
+            <i class="fi fi-br-search"></i>
+            <input type="search" id="search-bar" placeholder="search">
+        </div>
+        
+        <div class="sth-pfl">
+            <i class="fi fi-rr-brightness switcher"></i>
+            <img src="/src/images/user.png" alt="">
+        </div>
+    </header>
+
+    <main class="main-content">
+        <aside class="aside-content">
+            <div class="aside-content-wrapper">
+                <div class="next-task">
+                    <div id="today">
+                        <i class="fi fi-rr-calendar-clock"></i>
+                        <p>
+                            Today
+                        </p>
+                    </div>
+
+                    <div id="upcoming">
+                        <i class="fi fi-rr-calendar"></i>
+                        <p>
+                            Upcoming
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="projects-wrapper">
+                    <div class="project-options">
+                        <h2>
+                            Projects
+                        </h2>
+                        <div>
+                            <i class="fi fi-sr-plus-small"></i>
+                            <i class="fi fi-rr-angle-small-down"></i>
+                        </div>
+                    </div>
+
+                    <ul class="projects">
+                        <li>Project 1<i class="fi fi-sr-menu-dots"></i></li>
+                        <li>Project 2<i class="fi fi-sr-menu-dots"></i></li>
+                        <li>Project 3<i class="fi fi-sr-menu-dots"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <div id="task-board"></div>
+
+    </main>
+</body>
+</html>
