@@ -69,7 +69,7 @@ i {
 
 .search-bar {
     background-color: var(--light-gray);
-    width: min(300px, 100%);
+    width: min(500px, 100%);
 
     display: flex;
     border-radius: 10em;
