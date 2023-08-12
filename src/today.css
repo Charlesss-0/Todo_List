@@ -1,8 +1,9 @@
-:root {
+/* :root {
+    --background-color: #282828;
     --body-before: #0005;
-    --light-color: #F5F5F5;
+    --light-dark: #F5F5F5;
     --light-gray: #dfdfdf;
-    --font-color: #282828;
+    --font-color: #efefef;
     --secondary-font-color: #efefef;
     --hover-color: #9f9f9f;
     --gray: #5a5a5a;
@@ -12,7 +13,7 @@
     --tsk-color: #f9f9f9;
     --light-blue: #116A7B;
     --shadow: 2px 2px 3px var(--subtle-dark);
-}
+} */
 
 .today-content-wrapper {
     height: calc(100vh - 50px);
@@ -71,7 +72,7 @@
 }
 
 .tsk {
-    border: 1px solid var(--subtle-dark);
+    background-color: var(--tsk-color);
     box-shadow: var(--shadow);
     display: grid;
     grid-template-columns: auto 1fr auto;
@@ -82,10 +83,6 @@
     
     transition: all .2s ease;
     cursor: pointer;
-}
-
-.tsk:hover {
-    background-color: var(--tsk-color);
 }
 
 .tsk-chd {
@@ -109,7 +106,7 @@
 }
 
 .tsk-chd .dt-pr p {
-    background-color: var(--light-color);
+    background-color: var(--light-dark);
     font-size: 1.2rem;
     padding: 5px 10px;
     border-radius: 5px;
@@ -128,7 +125,7 @@
 
 .tsk-opts .mn-dts:hover,
 .tsk-opts .trsh:hover {
-    background-color: var(--light-color);
+    background-color: var(--light-dark);
 }
 
 .circle {
@@ -143,7 +140,7 @@
 }
 
 .nw-tsk-frm {
-    background-color: var(--light-color);
+    background-color: var(--light-dark);
     width: min(600px, 90%);
     height: 200px;
     border-radius: 10px;
@@ -181,11 +178,16 @@
 
 .form-content fieldset input {
     background-color: transparent;
+    color: var(--font-color);
     border: none;
     font-family: 'Nunito', sans-serif;
     padding: 5px;
     border-radius: 5px;
     outline: none;
+}
+
+.form-content fieldset input::-webkit-input-placeholder {
+    color: var(--hover-color);
 }
 
 .form-content fieldset input:nth-child(1) {
@@ -199,6 +201,7 @@
 }
 
 .form-content fieldset select {
+    color: var(--font-color);
     font-family: 'Nunito', sans-serif;
     background-color: transparent;
     border: 1px solid var(--hover-color);
@@ -208,10 +211,7 @@
 }
 
 .form-content fieldset select option {
-    -webkit-appearance: none;
-    appearance: none;
-    border: none;
-    background-color: transparent;
+    color: var(--background-color);
 }
 
 .form-content fieldset:nth-child(3) {
@@ -231,11 +231,12 @@
 
 .form-content button:nth-child(1) {
     background-color: var(--light-gray);
+    color: var(--font-color);
 }
 
 .form-content button:nth-child(2) {
     background-color: var(--light-blue);
-    color: var(--secondary-font-color);
+    color: var(--font-color);
 }
 
 .tsk-nm {

@@ -1,0 +1,14 @@
+.projects-content-wrapper {
+    height: calc(100vh - 50px);
+}
+
+.projects-content {
+    height: 100%;
+    padding: 1em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1.3rem;
+}

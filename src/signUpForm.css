@@ -1,0 +1,86 @@
+
+
+.form-content-wrapper {
+    height: 100vh;
+}
+
+.cntnr {
+    padding: 1em;
+}
+
+.app-name-wrapper {
+    font-size: 2.5rem;
+}
+
+.new-account-section {
+    margin-top: 5em;
+    padding: 1em;
+
+    display: grid;
+    gap: 2.5em;
+}
+
+.sign-up-form {
+    width: min(700px, 100%);
+}
+
+.sign-up-form fieldset:nth-child(1) {
+    display: flex;
+    gap: 3em;
+
+    padding: 1em;
+
+    border: none;
+}
+
+.sign-up-form fieldset:nth-child(1) div {
+    background-color: var(--gray);
+    padding: 10px;
+
+    display: grid;
+    flex: 1;
+
+    border-radius: 1.6em;
+    overflow: hidden;
+}
+
+.sign-up-form fieldset:nth-child(1) label,
+.sign-up-form fieldset:nth-child(2) label,
+.sign-up-form fieldset:nth-child(3) label {
+    color: #cacaca;
+
+    padding: 0 10px;
+    font-size: 1.2rem;
+}
+
+.sign-up-form fieldset:nth-child(1) input,
+.sign-up-form fieldset:nth-child(2) input,
+.sign-up-form fieldset:nth-child(3) input{
+    background-color: transparent;
+    color: var(--font-color);
+
+    border: none;
+    outline: none;
+
+    padding: 5px 10px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.sign-up-form fieldset:nth-child(2),
+.sign-up-form fieldset:nth-child(3) {
+    padding: 1em;
+
+    border: none;
+}
+
+.sign-up-form fieldset:nth-child(2) div,
+.sign-up-form fieldset:nth-child(3) div {
+    background-color: var(--gray);
+    padding: 10px;
+
+    display: grid;
+
+    border-radius: 1.6em;
+    overflow: hidden;
+}
+

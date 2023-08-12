@@ -13,7 +13,7 @@ export const thisMonth = JSON.parse(localStorage.getItem('thisMonth'))
 export const nextMonth = JSON.parse(localStorage.getItem('nextMonth'))
 
 // renders all today's tasks information, including event listeners and storing tasks in local storage leading them into their own separate array
-export function renderToday() {
+export function renderToday () {
     const taskBoard = document.getElementById('task-board')
     taskBoard.innerHTML = ''
     const div = document.createElement('div')
@@ -81,20 +81,20 @@ export function renderToday() {
     const nwTskFrm = document.querySelector('.nw-tsk-frm')
     const cancelBtn = document.querySelector('.cancel-btn')
 
-    function showNewTaskForm() {
+    function showNewTaskForm () {
         nwTskFrm.style.display = 'block'
         document.body.classList.add('show-before')
     }
     nwTskEl.addEventListener('click', showNewTaskForm)
 
-    function hideForm() {
+    function hideForm () {
         nwTskFrm.style.display = 'none'
         document.body.classList.remove('show-before')
     }
     cancelBtn.addEventListener('click', hideForm)
 
     // stores tasks into the correct array and also displays each task into the screen
-    const tasks = (function() {
+    ;(function () {
         const formContentEl = document.querySelector('.form-content')
 
         function addTaskForToday(name, des, date, priority) {
@@ -107,7 +107,7 @@ export function renderToday() {
             return task
         }
 
-        function submitNewTask(event) {
+        function submitNewTask (event) {
             event.preventDefault()
 
             const taskName = document.getElementById('tsk-nm')
@@ -163,7 +163,7 @@ export function renderToday() {
         }
         formContentEl.addEventListener('submit', submitNewTask)
 
-        function renderTodayTasks(today) {
+        function renderTodayTasks (today) {
             const taskList = document.querySelector('.tsk-lst')
             taskList.innerHTML = ''
 

@@ -1,9 +1,8 @@
-:root {
+/* :root {
     --body-before: #0005;
     --light-color: #F5F5F5;
     --light-gray: #dfdfdf;
-    --font-color: #282828;
-    --secondary-font-color: #efefef;
+    --font-color: #efefef;
     --hover-color: #9f9f9f;
     --gray: #5a5a5a;
     --black: #000000;
@@ -12,7 +11,7 @@
     --tsk-color: #f9f9f9;
     --light-blue: #116A7B;
     --shadow: 2px 2px 3px var(--subtle-dark);
-}
+} */
 
 .upcoming-content-wrapper {
     height: calc(100vh - 50px);
