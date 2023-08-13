@@ -13,9 +13,18 @@ const todayEl = document.getElementById('today')
 const upcomingEl = document.getElementById('upcoming')
 const projectsWrapperEl = document.querySelector('.projects-wrapper')
 
+const savedUserData = localStorage.getItem('userData')
+const shouldRenderSignUpForm = !savedUserData
+
 ui()
-renderSignUpForm()
-renderToday()
+
+if (shouldRenderSignUpForm) {
+    renderSignUpForm()
+
+} else {
+    renderToday()
+}
+
 todayEl.addEventListener('click', renderToday)
 upcomingEl.addEventListener('click', renderUpcoming)
 projectsWrapperEl.addEventListener('click', renderProjects)

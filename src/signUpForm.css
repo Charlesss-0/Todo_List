@@ -1,31 +1,51 @@
 
 
 .form-content-wrapper {
+    background-image: url(./images/background.jpg);
+    background-size: cover;
     height: 100vh;
+
+    display: flex;
+}
+
+.form-content-wrapper::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background-color: #191825;
+    opacity: 40%;
+    width: 100%;
+    height: 100%;
 }
 
 .cntnr {
+    background-color: #2f2f2f2f;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+
+    width: min(770px, 100%);
+    height: 100%;
     padding: 1em;
+    border-radius: 0 3em 3em 0;
 }
 
 .app-name-wrapper {
     font-size: 2.5rem;
+    text-align: center;
 }
 
 .new-account-section {
     margin-top: 5em;
     padding: 1em;
+}
 
+.sign-up-form fieldset:nth-child(1),
+.sign-up-form fieldset:nth-child(4) {
     display: grid;
-    gap: 2.5em;
-}
-
-.sign-up-form {
-    width: min(700px, 100%);
-}
-
-.sign-up-form fieldset:nth-child(1) {
-    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 3em;
 
     padding: 1em;
@@ -34,7 +54,8 @@
 }
 
 .sign-up-form fieldset:nth-child(1) div {
-    background-color: var(--gray);
+    background-color: #435560;
+    opacity: 80%;
     padding: 10px;
 
     display: grid;
@@ -55,7 +76,7 @@
 
 .sign-up-form fieldset:nth-child(1) input,
 .sign-up-form fieldset:nth-child(2) input,
-.sign-up-form fieldset:nth-child(3) input{
+.sign-up-form fieldset:nth-child(3) input {
     background-color: transparent;
     color: var(--font-color);
 
@@ -66,8 +87,18 @@
     font-family: 'Nunito', sans-serif;
 }
 
+.sign-up-form fieldset:nth-child(1) input:-webkit-autofill,
+.sign-up-form fieldset:nth-child(2) input:-webkit-autofill,
+.sign-up-form fieldset:nth-child(3) input:-webkit-autofill {
+    -webkit-text-fill-color: var(--font-color);
+    box-shadow: 0 0 0px 1000px #435560 inset;
+    font-family: 'Nunito', sans-serif;
+}
+
 .sign-up-form fieldset:nth-child(2),
-.sign-up-form fieldset:nth-child(3) {
+.sign-up-form fieldset:nth-child(3),
+.sign-up-form fieldset:nth-child(4),
+.sign-up-form fieldset:nth-child(5) {
     padding: 1em;
 
     border: none;
@@ -75,7 +106,8 @@
 
 .sign-up-form fieldset:nth-child(2) div,
 .sign-up-form fieldset:nth-child(3) div {
-    background-color: var(--gray);
+    background-color: #435560;
+    opacity: 80%;
     padding: 10px;
 
     display: grid;
@@ -84,3 +116,69 @@
     overflow: hidden;
 }
 
+.sign-up-form fieldset:nth-child(3) .password-fieldset-container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+}
+
+.sign-up-form fieldset:nth-child(3) .password-container {
+    display: grid;
+    padding: 0;
+}
+
+#show-password-btn {
+    user-select: none;
+}
+
+.sign-up-form fieldset:nth-child(4) div {
+    display: grid;
+    grid-auto-flow: column;
+
+    flex: 1;
+}
+
+.sign-up-form fieldset:nth-child(4) button {
+    padding: 1.5em;
+    font-family: inherit;
+    font-size: 1.5rem;
+
+    border: none;
+    border-radius: 1em;
+
+    cursor: pointer;
+}
+
+.sign-up-form fieldset:nth-child(4) button[type="button"] {
+    background-color: #DDE6ED;
+}
+
+.sign-up-form fieldset:nth-child(4) button[type="submit"] {
+    background-color: #27374D;
+    color: inherit;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 1em;
+    font-size: 1.5rem;
+}
+
+.login a {
+    text-decoration: none;
+    color: #27374D;
+
+    padding-left: 5px;
+}
+
+.login a:hover {
+    opacity: 50%;
+}
+
+@media (max-width: 770px) {
+    .cntnr {
+        border-radius: 0;
+    }
+}
