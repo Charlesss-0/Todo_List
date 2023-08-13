@@ -626,10 +626,14 @@ i {
 
 .form-content-wrapper {
     background-image: url(5495643f4c220e3b2bd9.jpg);
-    background-size: cover;
-    height: 100vh;
 
     display: flex;
+}
+
+.lazy-loading {
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
 }
 
 .form-content-wrapper::before {
